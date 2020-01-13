@@ -1,15 +1,10 @@
 version: '3'
 
-networks:
-  default:
-    driver: bridge
-
 services:
   textbelt-test:
-    image: textbelt-test
-    networks:
-      - "default"
-    container_name: textbelt-test
+    build: .
+    image: textbelt-docker
+    container_name: textbelt
     ports:
       - "9090:9090"
     environment:
@@ -28,5 +23,3 @@ services:
     image: "redis:alpine"
     ports:
       - "6379:6379"
-    networks:
-      - "default"
