@@ -1,0 +1,32 @@
+version: '3'
+
+networks:
+  default:
+    driver: bridge
+
+services:
+  textbelt-test:
+    image: textbelt-test
+    networks:
+      - "default"
+    container_name: textbelt-test
+    ports:
+      - "9090:9090"
+    environment:
+      - HOST=smtp.host.com #your smtp domain address: default is smtp.gmail.com
+      - MAIL_PORT=587 #your smtp port: default is 587
+      - MAIL_USER=youremailaccount #your email account name including domain
+      - MAIL_PASS=youremailpassword #your email account password
+      - FROM=youremailaddress #your from email address: myemail@domain.com
+      - REALNAME=your name #your name that appears in from email
+      - MAIL_DEBUG=true #debug mailing: default false
+      - SECURE_CONNECTION=true #if ssl is required: default is false
+    links:
+      - redis:redis
+  redis:
+    container_name: textbelt_redis
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+    networks:
+      - "default"
