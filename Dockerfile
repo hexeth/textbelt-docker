@@ -1,5 +1,9 @@
 FROM tarampampam/node:13.1-alpine
 
+LABEL url.docker="https://hub.docker.com/r/hexeth/textbelt-docker" \
+      url.github="https://github.com/hexeth/textbelt-docker" \
+      image.description="Node Alpine based image of textbelt" \
+
 ENV \
 #variables for textbelt
 PORT="9090" \
