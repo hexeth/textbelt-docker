@@ -18,7 +18,6 @@ RUN git clone https://github.com/typpo/textbelt.git
 RUN npm --prefix ./textbelt install ./textbelt
 
 RUN touch ~/startup.sh \
-  && chmod 755 ~/startup.sh \
   && chmod +x ~/startup.sh
 
 #change textbelt /lib/config.js to support env variables
