@@ -4,8 +4,8 @@ A Node Alpine based docker to easily get [textbelt](https://github.com/typpo/tex
 ## INSTALLATION
 ### Run
 ```
-docker run -p 9090:9090 \
---name=textbelt \
+docker run --name=textbelt \
+-p 9090:9090 \
 -e HOST=imap.gmail.com \
 -e MAIL_PORT=587 \
 -e MAIL_USER=username@email.com \
