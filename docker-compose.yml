@@ -1,10 +1,10 @@
 version: '3'
 
 services:
-  textbelt  :
-    build: .
-    image: textbelt-docker
+  textbelt:
+    image: hexeth/textbelt-docker
     container_name: textbelt
+    restart: unless-stopped
     ports:
       - "9090:9090"
     environment:
@@ -12,7 +12,7 @@ services:
       - MAIL_PORT=587 #your smtp port: default is 587
       - MAIL_USER=youremailaccount #your email account name including domain
       - MAIL_PASS=youremailpassword #your email account password
-      - FROM=youremailaddress #your from email address: myemail@domain.com
+      - FROM_ADDRESS=youremailaddress #your from email address: myemail@domain.com
       - REALNAME=your name #your name that appears in from email
       - MAIL_DEBUG=true #debug mailing: default false
       - SECURE_CONNECTION=true #if ssl is required: default is true
