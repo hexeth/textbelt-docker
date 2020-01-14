@@ -17,7 +17,7 @@ A docker image and compose to easily run [textbelt](https://github.com/typpo/tex
 * `FROM` **= youremailaddress** *#your from email address: myemail@domain.com*
 * `REALNAME` **= your name** *#your name that appears in from email*
 * `MAIL_DEBUG` **= true** *#debug mailing: default false*
-* `SECURE_CONNECTION` **= false** *#if ssl is required: default is false*
+* `SECURE_CONNECTION` **= true** *#if ssl is required: default is true*
 
 ## USAGE
 
