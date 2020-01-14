@@ -1,20 +1,51 @@
 # Textbelt-Docker
-A docker image and compose to easily run [textbelt](https://github.com/typpo/textbelt), and send outgoing SMS messages through email-to-SMS gateways.
+A Node Alpine based docker to easily get [textbelt](https://github.com/typpo/textbelt) running and send outgoing SMS messages through email-to-SMS gateways.
 
 ## INSTALLATION
-*git, docker, and docker-compose must be installed*
+### DOCKER
+```
+docker run -p 9090:9090 \
+--name=textbelt \
+-e HOST=imap.gmail.com \
+-e MAIL_PORT=587 \
+-e MAIL_USER=username@email.com \
+-e MAIL_PASS=emailpassword \
+-e FROM_ADDRESS=username@email.com \
+-e REALNAME=yourname \
+-e MAIL_DEBUG=false \
+-e SECURE_CONNECTION=true \
+--restart unless-stopped \
+hexeth\textbelt-docker
+```
 
-1. `git clone https://github.com/hexeth/textbelt-docker.git`
-1. `cd textbelt-docker`
-1. `nano docker-compose.yml` - set your env variables (listed below)
-1. `docker-compose up -d`
+### DOCKER-COMPOSE
+```
+version: '3'
+
+services:
+  textbelt:
+    image: hexeth/textbelt-docker
+    container_name: textbelt
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    environment:
+      - HOST=smtp.host.com
+      - MAIL_PORT=587
+      - MAIL_USER=youremailaccount
+      - MAIL_PASS=youremailpassword
+      - FROM_ADDRESS=youremailaddress
+      - REALNAME=your name
+      - MAIL_DEBUG=true
+      - SECURE_CONNECTION=true
+```
 
 ## ENV VARIABLES
 * `HOST` **= smtp.host.com** *#your smtp domain address: default is smtp.gmail.com*
 * `MAIL_PORT` **= 587** *#your smtp port: default is 587*
 * `MAIL_USER` **= youremailaccount** *#your email account name including domain*
 * `MAIL_PASS` **= youremailpassword** *#your email account password*
-* `FROM` **= youremailaddress** *#your from email address: myemail@domain.com*
+* `FROM_ADDRESS` **= your@email.address** *#your from email address: myemail@domain.com*
 * `REALNAME` **= your name** *#your name that appears in from email*
 * `MAIL_DEBUG` **= false** *#debug mailing: default false*
 * `SECURE_CONNECTION` **= true** *#if ssl is required: default is true*
