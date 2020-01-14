@@ -1,5 +1,5 @@
 # Textbelt-Docker
-A docker image and compose to easily run [textbelt](https://github.com/typpo/textbelt), and send outgoing SMS messages through Carrier Email-to-SMS Gateways.
+A docker image and compose to easily run [textbelt](https://github.com/typpo/textbelt), and send outgoing SMS messages through email-to-SMS gateways.
 
 ## INSTALLATION
 *git, docker, and docker-compose must be installed*
