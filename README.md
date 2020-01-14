@@ -24,9 +24,8 @@ A docker image and compose to easily run [textbelt](https://github.com/typpo/tex
 * When container starts you will see `listening on port 9090` in docker logs
 * To send text messages, run the following command `curl -X POST http://127.0.0.1:9090/text --data-urlencode number='18001337' --data-urlencode carrier='att' --data-urlencode 'message=Hello world'`
 * To text Canada or International numbers (based on supported carriers listed below), replace `/text` with `/canada` or `/intl`.
-* If you do not include carrier in your POST, the app will cycle through all available carriers based on your endpoint (e.g. /text will cycle through all US carriers). If you are using gmail or a similar public email app you will receive an error due your high SMTP frequency.
-
-* Successful messages will return a success in JSON
+* If you do not include carrier in your POST, the app will cycle through all available carriers based on your endpoint (e.g. /text will cycle through all US carriers). If you are using gmail or a similar public email app you will receive a failure response due your high SMTP frequency. You'll also likely receive a bunch of bounceback messages to your email inbox. Despite receiving a failure, the message will likely still go through.
+* Successful messages will return a success response.
 * Messages that fail to send will return a failure. Unfortunately, the failure reasons are not very descriptive. It is probably your mail settings. If you are using gmail and have two-factor authentication turned on you will need to create an [app password](https://support.google.com/accounts/answer/185833?hl=en).
 * Received messages will display to the intended recipient based on how each carrier supports email-to-SMS.  
 
