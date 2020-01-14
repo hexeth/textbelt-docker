@@ -6,16 +6,16 @@ LABEL url.docker="https://hub.docker.com/r/hexeth/textbelt-docker" \
 
 ENV \
 #variables for textbelt
-PORT="9090" \
-DEBUG="true" \
-HOST="imap.gmail.com" \
-MAIL_PORT="587" \
-MAIL_USER="email username" \
-MAIL_PASS="email password" \
-SECURE_CONNECTION="true" \
-FROM="" \
-REALNAME="" \
-MAIL_DEBUG="false"
+  PORT="9090" \
+  DEBUG="true" \
+  HOST="imap.gmail.com" \
+  MAIL_PORT="587" \
+  MAIL_USER="email username" \
+  MAIL_PASS="email password" \
+  SECURE_CONNECTION="true" \
+  FROM="email@emailaddress.com" \
+  REALNAME="yourname" \
+  MAIL_DEBUG="false"
 
 RUN git clone https://github.com/typpo/textbelt.git
 
