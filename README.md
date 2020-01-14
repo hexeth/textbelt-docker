@@ -21,7 +21,7 @@ A docker image and compose to easily run [textbelt](https://github.com/typpo/tex
 
 ## USAGE
 
-* When container starts you will see `listening on port 9090`
+* When container starts you will see `listening on port 9090` in docker logs
 * To send text messages, run the following command `curl -X POST http://127.0.0.1:9090/text --data-urlencode number='18001337' --data-urlencode carrier='att' --data-urlencode 'message=Hello world'`
 * To text Canada or International numbers (based on supported carriers listed below), replace `/text` with `/canada` or `/intl`.
 
