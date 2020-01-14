@@ -2,7 +2,7 @@
 A Node Alpine based docker to easily get [textbelt](https://github.com/typpo/textbelt) running and send outgoing SMS messages through email-to-SMS gateways.
 
 ## INSTALLATION
-### DOCKER
+### Run
 ```
 docker run -p 9090:9090 \
 --name=textbelt \
@@ -18,7 +18,7 @@ docker run -p 9090:9090 \
 hexeth\textbelt-docker
 ```
 
-### DOCKER-COMPOSE
+### Compose
 ```
 version: '3'
 
