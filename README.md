@@ -28,6 +28,7 @@ A docker image and compose to easily run [textbelt](https://github.com/typpo/tex
 * Successful messages will return a success in JSON
 * Messages that fail to send will return a failure. Unfortunately, the failure reasons are not very descriptive. It is probably your mail settings. If you are using gmail and have two-factor authentication turned on you will need to create an [app password](https://support.google.com/accounts/answer/185833?hl=en).
 * Received messages will display to the intended recipient based on how each carrier supports email-to-SMS.  
+* If you do not include carrier in your POST, the app will cycle through all available carriers. If you are using gmail or a similar public email app you will receive an error due your high SMTP frequency.
 
 ## SUPPORTED CARRIERS
 * Supported U.S. carriers: Alltel, Ameritech, AT&T Wireless, Boost, CellularOne, Cingular, Edge Wireless, Nex-Tech Wireless, Project Fi, Sprint PCS, Telus Mobility, T-Mobile, Metro PCS, Nextel, O2, Orange, Qwest, Rogers Wireless, Ting, US Cellular, Verizon, Virgin Mobile.
