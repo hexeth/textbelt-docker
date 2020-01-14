@@ -7,7 +7,7 @@ A docker image and compose to easily run [textbelt](https://github.com/typpo/tex
 1. `git clone https://github.com/hexeth/textbelt-docker.git`
 1. `cd textbelt-docker`
 1. `nano docker-compose.yml`, set your env variables (listed below), save and exit
-1. run `docker-compose up -d` 
+1. run `docker-compose up -d`
 
 ## ENV VARIABLES
 * `HOST` **= smtp.host.com** *#your smtp domain address: default is smtp.gmail.com*
@@ -21,9 +21,13 @@ A docker image and compose to easily run [textbelt](https://github.com/typpo/tex
 
 ## USAGE
 
-* Run the following command `curl -X POST http://127.0.0.1:9090/text --data-urlencode number='18001337' --data-urlencode carrier='att' --data-urlencode 'message=Hello world'`
-* Replace /text with /canada for canadian carriers or /intl for international carriers (supported carriers below).
+* When container starts you will see `listening on port 9090`
+* To send text messages, run the following command `curl -X POST http://127.0.0.1:9090/text --data-urlencode number='18001337' --data-urlencode carrier='att' --data-urlencode 'message=Hello world'`
+* To text Canada or International numbers (based on supported carriers listed below), replace `/text` with `/canada` or `/intl`.
 
+* Successful messages will return a success in JSON
+* Messages that fail to send will return a failure. Unfortunately, the failure reasons are not very descriptive. It is probably your mail settings. If you are using gmail and have two-factor authentication turned on you will need to create an [app password](https://support.google.com/accounts/answer/185833?hl=en).
+* Received messages will display to the intended recipient based on how each carrier supports email-to-SMS.  
 
 ## SUPPORTED CARRIERS
 * Supported U.S. carriers: Alltel, Ameritech, AT&T Wireless, Boost, CellularOne, Cingular, Edge Wireless, Nex-Tech Wireless, Project Fi, Sprint PCS, Telus Mobility, T-Mobile, Metro PCS, Nextel, O2, Orange, Qwest, Rogers Wireless, Ting, US Cellular, Verizon, Virgin Mobile.
