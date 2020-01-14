@@ -6,8 +6,8 @@ A docker image and compose to easily run [textbelt](https://github.com/typpo/tex
 
 1. `git clone https://github.com/hexeth/textbelt-docker.git`
 1. `cd textbelt-docker`
-1. `nano docker-compose.yml`, set your env variables (listed below), save and exit
-1. run `docker-compose up -d`
+1. `nano docker-compose.yml` - set your env variables (listed below)
+1. `docker-compose up -d`
 
 ## ENV VARIABLES
 * `HOST` **= smtp.host.com** *#your smtp domain address: default is smtp.gmail.com*
