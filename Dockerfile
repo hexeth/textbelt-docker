@@ -27,6 +27,7 @@ RUN touch ~/startup.sh \
 #change textbelt /lib/config.js to support env variables
 RUN echo '#!/bin/bash' >> ~/startup.sh  \
   && echo "touch /textbelt/server/torlist" >> ~/startup.sh \
+  && echo "git -C /textbelt pull" >> ~/startup.sh \
   && echo "sed -i \"s|host: 'smtp.example.com'|host: process.env.HOST|\" /textbelt/lib/config.js"  >> ~/startup.sh \
   && echo "sed -i \"s|port: 587|port: process.env.MAIL_PORT|\" /textbelt/lib/config.js"  >> ~/startup.sh \
   && echo "sed -i \"s|user: 'user@example.com'|user: process.env.MAIL_USER|\" /textbelt/lib/config.js"  >> ~/startup.sh \
