@@ -1,5 +1,10 @@
 name: Publish Docker
-on: [push]
+on:
+  push:
+    paths-ignore:
+    - '.github/**'
+    - 'README.md'
+    - '.gitignore'  
 jobs:
   build:
     runs-on: ubuntu-latest
