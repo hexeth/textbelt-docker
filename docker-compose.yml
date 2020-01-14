@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  textbelt-test:
+  textbelt:
     build: .
     image: textbelt-docker
     container_name: textbelt
@@ -15,4 +15,4 @@ services:
       - FROM=youremailaddress #your from email address: myemail@domain.com
       - REALNAME=your name #your name that appears in from email
       - MAIL_DEBUG=true #debug mailing: default false
-      - SECURE_CONNECTION=true #if ssl is required: default is false
+      - SECURE_CONNECTION=true #if ssl is required: default is true
