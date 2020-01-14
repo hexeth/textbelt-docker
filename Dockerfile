@@ -13,7 +13,7 @@ ENV \
   MAIL_USER="email username" \
   MAIL_PASS="email password" \
   SECURE_CONNECTION="true" \
-  FROM="email@emailaddress.com" \
+  FROM_ADDRESS="email@emailaddress.com" \
   REALNAME="yourname" \
   MAIL_DEBUG="false"
 
@@ -33,7 +33,7 @@ RUN echo '#!/bin/bash' >> ~/startup.sh  \
   && echo "sed -i \"s|pass: 'example password 1'|pass: process.env.MAIL_PASS|\" /textbelt/lib/config.js"  >> ~/startup.sh \
   && echo "sed -i \"s|secureConnection: 'false'|secureConnection: process.env.SECURE_CONNECTION|\" /textbelt/lib/config.js"  >> ~/startup.sh \
   && echo "sed -i \"s|Jane Doe|process.env.REALNAME|\" /textbelt/lib/config.js"  >> ~/startup.sh \
-  && echo "sed -i \"s|jane.doe@example.com|process.env.FROM|\" /textbelt/lib/config.js"  >> ~/startup.sh \
+  && echo "sed -i \"s|jane.doe@example.com|process.env.FROM_ADDRESS|\" /textbelt/lib/config.js"  >> ~/startup.sh \
   && echo "sed -i \"s|debugEnabled: false|debugEnabled: process.env.MAIL_DEBUG|\" /textbelt/lib/config.js"  >> ~/startup.sh \
   && echo "nodejs /textbelt/server/app.js &" >> ~/startup.sh \
   && echo "trap : TERM INT; (while true; do sleep 1000; done) & wait" >> ~/startup.sh
