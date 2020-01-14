@@ -15,7 +15,7 @@ docker run --name=textbelt \
 -e MAIL_DEBUG=false \
 -e SECURE_CONNECTION=true \
 --restart unless-stopped \
-hexeth\textbelt-docker
+hexeth/textbelt-docker
 ```
 
 ### Compose
